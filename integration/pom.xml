@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> 
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.jacoda.keffylau</groupId>
+    <artifactId>langchain4j-karaf-features</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>integration</artifactId>
+  
+  <properties>
+  	<langchain4j.bundle.manifest.common>&amp;amp;Bundle-Version=${langchain4j.version}&amp;amp;Export-Packages=dev.langchain4j.model.*;version="${langchain4j.version}"</langchain4j.bundle.manifest.common>
+  	<langchain4j-open-ai.bundle.manifest>$Bundle-Name=LangChain4J%20::%20Integration%20::%20OpenAI&amp;amp;Bundle-SymbolicName=langchain4j-integration-open-ai${langchain4j.bundle.manifest.common}</langchain4j-open-ai.bundle.manifest>
+  	<langchain4j-ollama.bundle.manifest>$Bundle-Name=LangChain4J%20::%20Integration%20::%20Ollama&amp;amp;Bundle-SymbolicName=langchain4j-integration-ollama${langchain4j.bundle.manifest.common}</langchain4j-ollama.bundle.manifest>
+  	<langchain4j-anthropic.bundle.manifest>$Bundle-Name=LangChain4J%20::%20Integration%20::%20Anthropic&amp;amp;Bundle-SymbolicName=langchain4j-integration-anthropic${langchain4j.bundle.manifest.common}</langchain4j-anthropic.bundle.manifest>
+    <langchain4j-mistral-ai.bundle.manifest>$Bundle-Name=LangChain4J%20::%20Integration%20::%20Mistral&amp;amp;Bundle-SymbolicName=langchain4j-integration-mistral-ai${langchain4j.bundle.manifest.common}</langchain4j-mistral-ai.bundle.manifest>
+  </properties>
+  
+    <build>
+  	<plugins>
+  		<plugin>
+  		<groupId>net.srmr</groupId>
+        <artifactId>qute-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <id>generate-files</id>
+            <phase>generate-sources</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <templateFiles>
+                    <directory>src/main/feature</directory>
+                    <includes>
+                        <include>**/*.qute</include>
+                    </includes>
+                </templateFiles>
+                <outputDirectory>${project.build.directory}/feature</outputDirectory>
+                <removeExtension>.qute</removeExtension>
+                <useMavenProperties>true</useMavenProperties>
+            </configuration>
+          </execution>
+        </executions>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>

@@ -1,0 +1,11 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="langchain4j-runtime-repository">
+
+	<feature name="langchain4j-runtime" version="{langchain4j.version}">
+		<feature>langchain4j-external-dependencies</feature>
+		<bundle>wrap:mvn:dev.langchain4j/langchain4j-core/{langchain4j.version}/{langchain4j.core.bundle.manifest}</bundle>
+		<bundle>wrap:mvn:dev.langchain4j/langchain4j/{langchain4j.version}/{langchain4j.bundle.manifest}</bundle>
+		<bundle>wrap:mvn:dev.langchain4j/langchain4j-http-client/{langchain4j.version}/{langchain4j-http-client.bundle.manifest}</bundle>
+		<bundle>wrap:mvn:dev.langchain4j/langchain4j-http-client-jdk/{langchain4j.version}/{langchain4j-http-client-jdk.bundle.manifest}</bundle>
+	</feature>
+
+</features>

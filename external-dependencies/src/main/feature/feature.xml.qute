@@ -1,0 +1,28 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="langchain4j-external-dependencies-repository">
+
+	<feature name="com-fasterxml-jackson">
+		<bundle>mvn:com.fasterxml.jackson.core/jackson-core/{fasterxml.jackson.core.version}</bundle>
+		<bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/{fasterxml.jackson.annotations.version}</bundle>
+		<bundle>mvn:com.fasterxml.jackson.core/jackson-databind/{fasterxml.jackson.databind.version}</bundle>
+	</feature>
+	
+	<feature name="jspecify">
+		<bundle>mvn:org.jspecify/jspecify/{jspecify.version}</bundle>
+	</feature>
+	
+	<feature name="opennlp">
+		<bundle>wrap:mvn:org.apache.opennlp/opennlp-tools/{opennlp.version}/{opennlp.bundle.manifest}</bundle>
+	</feature>
+	
+	<feature name="jtokkit">
+		<bundle>wrap:mvn:com.knuddels/jtokkit/{jtokkit.version}/{jtokkit.bundle.manifest}</bundle>
+	</feature>
+	
+	<feature name="langchain4j-external-dependencies">
+		<feature>com-fasterxml-jackson</feature>
+		<feature>jspecify</feature>
+		<feature>opennlp</feature>
+		<feature>jtokkit</feature>
+	</feature>
+
+</features>

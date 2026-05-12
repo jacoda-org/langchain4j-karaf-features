@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> 
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.jacoda.keffylau</groupId>
+    <artifactId>langchain4j-karaf-features</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>core</artifactId>
+  
+  <properties>
+  	<langchain4j.core.bundle.manifest>$Bundle-Name=LangChain4J%20::%20Core&amp;amp;Bundle-SymbolicName=langchain4j-core&amp;amp;Bundle-Version=${langchain4j.version}&amp;amp;Export-Packages=dev.langchain4j;version="${langchain4j.version}",dev.langchain4j.*;version="${langchain4j.version}"</langchain4j.core.bundle.manifest>
+  	<langchain4j.bundle.manifest>$Bundle-Name=LangChain4J%20::%20${langchain4j.version}&amp;amp;Bundle-SymbolicName=langchain4j&amp;amp;Bundle-Version=${langchain4j.version}&amp;amp;Export-Packages=dev.langchain4j.*;version="${langchain4j.version}"</langchain4j.bundle.manifest>
+	<langchain4j-http-client.bundle.manifest>$Bundle-Name=LangChain4J%20::%20HTTP%20Client&amp;amp;Bundle-SymbolicName=langchain4j-http-client&amp;amp;Bundle-Version=${langchain4j.version}&amp;amp;Export-Packages=dev.langchain4j.*;version="${langchain4j.version}"</langchain4j-http-client.bundle.manifest>
+  	<langchain4j-http-client-jdk.bundle.manifest>$Bundle-Name=LangChain4J%20::%20HTTP%20Client%20JDK%20HttpClient&amp;amp;Bundle-SymbolicName=langchain4j-http-client-jdk&amp;amp;Bundle-Version=${langchain4j.version}&amp;amp;Export-Packages=dev.langchain4j.*;version="${langchain4j.version}"</langchain4j-http-client-jdk.bundle.manifest>
+  
+  </properties>
+  
+    <build>
+  	<plugins>
+  		<plugin>
+  		<groupId>net.srmr</groupId>
+        <artifactId>qute-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <id>generate-files</id>
+            <phase>generate-sources</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <templateFiles>
+                    <directory>src/main/feature</directory>
+                    <includes>
+                        <include>**/*.qute</include>
+                    </includes>
+                </templateFiles>
+                <outputDirectory>${project.build.directory}/feature</outputDirectory>
+                <removeExtension>.qute</removeExtension>
+                <useMavenProperties>true</useMavenProperties>
+            </configuration>
+          </execution>
+        </executions>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>

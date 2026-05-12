@@ -1,0 +1,20 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.6.0" name="langchain4j-integration">
+
+	<feature name="langchain4j-integration-anthropic" version="{langchain4j.version}">
+		<bundle>wrap:mvn:dev.langchain4j/langchain4j-anthropic/{langchain4j.version}/{langchain4j-anthropic.bundle.manifest}</bundle>
+	</feature>
+
+	<feature name="langchain4j-integration-ollama" version="{langchain4j.version}">
+		<bundle>wrap:mvn:dev.langchain4j/langchain4j-ollama/{langchain4j.version}/{langchain4j-ollama.bundle.manifest}</bundle>
+	</feature>
+
+	<feature name="langchain4j-integration-open-ai" version="{langchain4j.version}">
+		<bundle>wrap:mvn:dev.langchain4j/langchain4j-open-ai/{langchain4j.version}/{langchain4j-open-ai.bundle.manifest}</bundle>
+	</feature>
+
+	<feature name="langchain4j-integration-mistral-ai" version="{langchain4j.version}">
+		<bundle>wrap:mvn:dev.langchain4j/langchain4j-mistral-ai/{langchain4j.version}/{langchain4j-mistral-ai.bundle.manifest}</bundle>
+	</feature>
+
+
+</features>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> 
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.jacoda.keffylau</groupId>
+    <artifactId>langchain4j-karaf-features</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>langchain4j-external-dependencies</artifactId>
+  
+  <properties>
+  	<opennlp.bundle.manifest>$Bundle-Name=Apache%20OpenNLP%20::%20Tools&amp;amp;Bundle-SymbolicName=opennlp-tools&amp;amp;Bundle-Version=${opennlp.version}&amp;amp;Export-Package=opennlp.tools.*;version="${opennlp.version}"</opennlp.bundle.manifest>
+  	<jtokkit.bundle.manifest>$Bundle-Name=JTokkit&amp;amp;Bundle-SymbolicName=jtokkit&amp;amp;Bundle-Version=${jtokkit.version}&amp;amp;Export-Package=com.knuddels.jtokkit.*;version="${jtokkit.version}"</jtokkit.bundle.manifest>
+  </properties>
+  
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  		<groupId>net.srmr</groupId>
+        <artifactId>qute-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <id>generate-files</id>
+            <phase>generate-sources</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <templateFiles>
+                    <directory>src/main/feature</directory>
+                    <includes>
+                        <include>**/*.qute</include>
+                    </includes>
+                </templateFiles>
+                <outputDirectory>${project.build.directory}/feature</outputDirectory>
+                <removeExtension>.qute</removeExtension>
+                <useMavenProperties>true</useMavenProperties>
+            </configuration>
+          </execution>
+        </executions>
+  		</plugin>
+  	</plugins>
+  </build>
+</project>
